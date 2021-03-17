@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+
+@font-face {
+  font-family: 'universe';
+  src: local('Universe'), url('../assets/fonts/Univers-ExtraBlackObl.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'black';
+  font-weight: 900;
+  src: url(../assets//fonts/Poppins-Black.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'bold';
+  src: url(../assets//fonts/Poppins-Bold.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'bolditalic';
+  src: url(../assets//fonts/Poppins-BoldItalic.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'extrabold';
+  src: url(../assets//fonts/Poppins-ExtraBold.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'extrabolditalic';
+  src: url(../assets//fonts/Poppins-ExtraBoldItalic.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'extralight';
+  src: url(../assets//fonts/Poppins-ExtraLight.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'extralightitalic';
+  src: url(../assets//fonts/Poppins-ExtraLightItalic.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'italic';
+  src: url(../assets//fonts/Poppins-Italic.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'light';
+  src: url(../assets//fonts/Poppins-Light.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'lightitalic';
+  src: url(../assets//fonts/Poppins-LightItalic.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'medium';
+  src: url(../assets//fonts/Poppins-Medium.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'mediumitalic';
+  src: url(../assets//fonts/Poppins-MediumItalic.ttf)
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'regular';
+  src: url(../assets//fonts/Poppins-Regular.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'semibild';
+  src: url(../assets//fonts/Poppins-SemiBold.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'semibold';
+  src: url(../assets//fonts/Poppins-SemiBoldItalic.ttf)
+    format('truetype');
+}
+@font-face {
+  font-family: 'thin';
+  src: url(../assets//fonts/Poppins-Thin.ttf)
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'thinitalic';
+  src: url(../assets//fonts/Poppins-ThinItalic.ttf)
+    format('truetype');
+}
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets//fonts/material/material-icons.woff2) format('woff2');
+}
+
+
+body {
+  color: #2c2c2c;
+  font-family: Regular;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.material-icons{
+    font-family: 'Material Icons';
+}
+
+.BrainhubCarousel__container{
+  height: 100%;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ff8c66;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 22px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
