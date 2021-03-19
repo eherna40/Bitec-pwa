@@ -12,6 +12,7 @@ const TabletsScreen = () => {
     const [tablets, setTablets] = useState([])
     useEffect(() => {
         getTablets().then(({ status, data }) => {
+            console.log(status)
             if (status === 'success')
                 setTablets(data)
         })

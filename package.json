@@ -39,6 +39,7 @@
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4"
   },
+  "proxy": "http://localhost:3000/webapp",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -62,5 +63,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://bitec.okoiagency.com/webapp"
+  
 }

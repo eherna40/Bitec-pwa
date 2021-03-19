@@ -5,7 +5,7 @@ const Title = props => {
     return (
         <Container className="tw-absolute " >
             <Paragraphs className="tw-tracking-widest" uppercase family='universe' size='6xl'>
-                Especificaciones
+                {props.title}
                 </Paragraphs>
         </Container>
     )

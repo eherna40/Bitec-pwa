@@ -7,7 +7,7 @@ const Selectors = ({ onPress, info }) => {
         <div className="tw-flex tw-justify-end tw-items-center">
             <div className={`tw-px-4 tw-opacity-${info !== 1 ? '25' : '100'}`} onClick={() => onPress(1)}>
                 <Paragraphs italic family='universe' uppercase size='lg'>
-                    Especifiaciones
+                    Especificaciones
             </Paragraphs>
             </div>
             <div className={`tw-px-4 tw-opacity-${info !== 2 ? '25' : '100'}`} onClick={() => onPress(2)}>

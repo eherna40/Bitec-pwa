@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Logo from '../components/Logo/Logo'
 import Spinner from '../components/Spinner/Spinner'
 import { useHistory } from 'react-router-dom'
@@ -11,6 +11,10 @@ localForage.createInstance({
 
 const SplashScreen = () => {
     const history = useHistory()
+    
+    useEffect(() => {
+        history.push('/tablets')
+    }, [])
     // const getItem = () => {
     //     localForage.getItem('keys', function (err, value) {
     //         console.log(value, err)

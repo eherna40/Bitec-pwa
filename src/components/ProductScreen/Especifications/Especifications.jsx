@@ -5,11 +5,11 @@ import { Line } from './styles'
 
 const Especifications = ({ data }) => {
     return (
-        <div>
+        <div  className="tw-p-6">
             {
                 data.map(i => <div className="tw-mb-5">
-                    <Line className="tw-bg-black-800" />
-                    <Paragraphs italic family='bolditalic' className="tw-text-black-600" size='md' key={i.id_especificacion}>{i.data}</Paragraphs>
+                    <Line className="tw-bg-white" />
+                    <Paragraphs italic family='medium' className="tw-text-black-800" size='sm' key={i.id_especificacion}>{i.data}</Paragraphs>
                 </div>)
             }
         </div>

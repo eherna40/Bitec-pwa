@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Reference from '../../Reference/Reference'
 import { useHistory } from 'react-router-dom'
+import { Container } from '../../Listing/styles'
 
-const Product = ({ images, reference, id, accesories, category, price, compare, description, description_short, name, upc, features, especifications }) => {
+const Product = ({ idx, images, reference, id, accesories, category, price, compare, description, description_short,ean13, name, upc, features, especifications }) => {
     const cover = images.find(i => i.cover === '1')
     const history = useHistory()
 
@@ -11,18 +12,18 @@ const Product = ({ images, reference, id, accesories, category, price, compare, 
         history.push({
             pathname: '/product',
             state: {
-                images, reference, id, accesories, category, price, compare, description, description_short, name, upc, features, especifications
+                images, ean13, reference, id, accesories, category, price, compare, description, description_short, name, upc, features, especifications
             }
         })
     }
     if(!cover) return null
     return (
-        <div className="Product tw-relative tw-w-2/12" onClick={handleSelect}>
+        <Container idx={idx} className="Product tw-relative tw-w-2/12" onClick={handleSelect}>
             <div className="tw-p-5 ">
                 <img src={cover ? cover?.url : ''} />
                 <Reference absolute={true} reference={reference} />
             </div>
-        </div>
+        </Container>
     )
 }
 

@@ -10,6 +10,7 @@ import Selectors from '../components/ProductScreen/Selectors/Selectors'
 import Features from '../components/ProductScreen/Features/Features'
 import Accesories from '../components/ProductScreen/Accesories/Accesories'
 import Title from '../components/ProductScreen/Title'
+import Comprador from '../components/ProductScreen/Comparador'
 
 const ProductScreen = () => {
     const history = useHistory()
@@ -20,9 +21,9 @@ const ProductScreen = () => {
         description,
         especifications,
         features,
-        accesories
+        accesories,
+        ean13
     } = history.location.state
-
     const [info, setInfo] = useState(1)
 
     return (
@@ -34,37 +35,42 @@ const ProductScreen = () => {
                     </div>
                     <div className="tw-flex-1 tw-relative tw-p-10 tw-flex tw-flex-col">
                         <div className="tw-flex-1">
-                            <Reference reference={reference} absolute={false} />
+                            <Reference reference={reference} ean13={ean13} absolute={false} />
                             <Name name={name} />
+                            <Comprador />
                             <Description description={description} />
-                            <div className="tw-overflow-auto" style={{ maxHeight: 350 }}>
+                            <div className="tw-overflow-auto  tw-rounded-md tw-relative" style={{ maxHeight: 340, boxShadow: '0px 3px 6px rgb(0 0 0 / 20%)', left: -70, backgroundColor: 'lightgray' }}>
                                 <Especifications data={especifications} />
                             </div>
-                            
+
                         </div>
-                        <Selectors onPress={(i) => setInfo(i)} info={info}  />
+                        <Selectors onPress={(i) => setInfo(i)} info={info} />
                     </div>
                 </div>
                 <div
                     style={{
                         height: 120
                     }}
-                    className="tw-overflow-auto "
+                    className=""
                 >
                     {
-                        info === 1 && 
+                        info === 1 &&
                         <>
-                        <Title />
-                        <Features data={features} />
-                        </>
-                         }     
                            
-                            {
-                        info === 2 && <Accesories data={accesories} />
-                            }
+                            <Features data={features} />
+                        </>
+                    }
 
-                          
-                    
+                    {
+                        info === 2 &&
+                        <>
+                            
+                            <Accesories data={accesories} />
+                        </>
+                    }
+
+
+
 
 
                 </div>

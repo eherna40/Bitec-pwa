@@ -4,11 +4,13 @@ import Paragraphs from '../../Paragraphs/Paragraphs'
 
 const Category = ({
     name,
-    onPress
+    onPress,
+    idx
 }) => {
     return (
-        <div className="Category tw-p-4 tw-mx-3 tw-cursor-pointer" onClick={onPress}>
-            <Paragraphs size={'3xl'} italic family='black'>{name}</Paragraphs>
+        <div className="Category tw-p-4 tw-mx-3 tw-cursor-pointer tw-flex" onClick={onPress}>
+            <Paragraphs size={'3xl'} className="tw-text-white tw-mr-3" italic family='black'>{idx + 1}. </Paragraphs>
+            <Paragraphs size={'3xl'} className="tw-text-white" italic family='black'>{name}</Paragraphs>
         </div>
     )
 }

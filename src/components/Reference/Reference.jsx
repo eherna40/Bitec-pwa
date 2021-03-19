@@ -6,22 +6,22 @@ import { Container, Line } from './styles'
 const Reference = ({ reference,
     absolute,
     textAlign,
-    EAN
+    ean13
 }) => {
     return (
         <Container absolute={absolute}>
             <div className="line tw-flex tw-items-end">
-                <Line className="tw-bg-black-800 tw-relative" />
+                {/* <Line className="tw-bg-black-800 tw-relative" /> */}
                 <Paragraphs uppercase size={'xs'} family='bold' className={`tw-text-${textAlign} tw-text-black-800`}>
-                    Referencia
+                    {ean13}
             </Paragraphs>
             </div>
             <Paragraphs family='extrabold' size='2xl' className={`tw-text-${textAlign} tw-opacity-10`}>
                 {reference}
             </Paragraphs>
-            <Paragraphs size={'xs'} family='medium' className={`tw-text-black-800`}>
+            {/* <Paragraphs size={'xs'} family='medium' className={`tw-text-black-800`}>
                 {EAN}
-            </Paragraphs>
+            </Paragraphs> */}
         </Container>
     )
 }

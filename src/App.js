@@ -6,7 +6,7 @@ import AppRoute from './routes/route'
 
 function App() {
   return (
-    <Router basename='/'>
+    <Router basename='/webapp'>
       <Switch>
         {publicRoutes.map((route, idx) => {
           return (
