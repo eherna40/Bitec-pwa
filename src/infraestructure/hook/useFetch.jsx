@@ -6,11 +6,10 @@ export default function useFetch(endpoint, method = 'POST') {
   const [data, setData] = useState(null)
     const url = baseUrl + api + methods[endpoint]
   const doFetch = async (variables = {}) => {
-    let { param, options } = variables
+    let {  options } = variables
     setLoading(true)
     setError(null)
     try {
-      param = param || ''
       const res = await fetch(url, {
         method,
         ...options,

@@ -26,6 +26,7 @@ const middlewares = []
 const persistConfig = {
   key: 'root',
   storage,
+  whiteList: ['categoryReducer']
 }
 
 

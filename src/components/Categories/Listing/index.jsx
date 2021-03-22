@@ -1,10 +1,13 @@
 import React from 'react'
 import ItemTitle from '../ItemTitle/ItemTitle'
 
-const Listing = props => {
+const Listing = ({data}) => {
     return (
         <div>
-            <ItemTitle />
+            {
+                data.map((i, idx) => <ItemTitle {...i} idx={idx} />)
+            }
+          
         </div>
     )
 }

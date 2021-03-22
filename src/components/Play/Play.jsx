@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import IcPlay from '../Icons/IcPlay'
 import { Container } from './styles'
 

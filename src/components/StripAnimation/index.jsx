@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 
-const StripAnimation = ({ children, duration, delay= 0, onAnimationComplete }) => {
+const StripAnimation = ({ children, duration, delay = 0, onAnimationComplete, className }) => {
     return (
-        <div className="ItemTitle tw-flex tw-float-left tw-clear-both tw-relative tw-overflow-hidden">
+        <div className={`${className} ItemTitle tw-flex tw-float-left tw-clear-both tw-relative tw-overflow-hidden`}>
             <motion.div
                 className="tw-absolute tw-top-0 tw-left-0 tw-bg-white tw-h-full tw-w-full"
                 transition={{
@@ -38,6 +38,7 @@ const StripAnimation = ({ children, duration, delay= 0, onAnimationComplete }) =
                     opacity: 0
                 }}
             >
+
                 {children}
             </motion.div>
 

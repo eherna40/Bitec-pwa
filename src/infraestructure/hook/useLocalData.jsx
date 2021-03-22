@@ -1,5 +1,3 @@
-import { data } from "autoprefixer";
-import * as localForage from "localforage";
 import { useDispatch } from "react-redux";
 import { actionSetCategories } from "../redux/actions/category";
 import useBlob from "./useBlob";
@@ -8,17 +6,8 @@ const useLocalData = () => {
 
     const dispatch = useDispatch()
     const { makeFetch } = useBlob()
-    const setItem = async (key, value) => {
-        return await localForage.setItem(key, value).then(res => res)
-    }
 
-    const getItem = (key) => {
-        localForage.getItem('keys', function (err, value) {
-            console.log(value, err)
-            var url = URL.createObjectURL(value);
-            console.log(url)
-        });
-    }
+
 
     const savePrincipalVideo = async (url) => {
         try {

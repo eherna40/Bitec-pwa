@@ -9,19 +9,19 @@ import BackgroundAnimation from '../components/BackgroundAnimation'
 
 const SplashScreen = () => {
     const history = useHistory()
-    const [doFetch, { data, loading, error }] = useFetch('getTablets')
+    const [doFetch, { data }] = useFetch('getTablets')
     const [onCompleteBackground, setOnCompleteBackground] = useState(false)
     const [onCompleteText, setOnCompleteText] = useState(false)
 
     useEffect(() => {
-            if (data) {
-                history.replace('/tablets')
-            }
+        if (data) {
+            history.replace('/tablets')
+        }
 
     }, [data])
 
     useEffect(() => {
-        if(onCompleteText && onCompleteBackground){
+        if (onCompleteText && onCompleteBackground) {
             doFetch()
         }
     }, [onCompleteBackground, onCompleteText])
@@ -30,14 +30,10 @@ const SplashScreen = () => {
     return (
         <Layout className="Splash tw-h-full tw-flex tw-items-center tw-justify-center tw-flex-col tw-w-full">
             <BackgroundAnimation onAnimtaionEnd={() => setOnCompleteBackground(true)} />
-
-                    <StripAnimation delay={1}  onAnimationComplete={() => setOnCompleteText(true)}>
-                        <Logo mode='light' size='large' />
-                    </StripAnimation>
-                    <Spinner />
-           
-            
-
+            <StripAnimation delay={1} onAnimationComplete={() => setOnCompleteText(true)}>
+                <Logo mode='light' size='large' />
+            </StripAnimation>
+            <Spinner />
         </Layout>
 
     )

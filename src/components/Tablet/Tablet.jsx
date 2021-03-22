@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Container, Round, Rounded } from './styles'
+import {  Container} from './styles'
 import Paragraphs from '../Paragraphs/Paragraphs'
 import { motion } from 'framer-motion'
 
@@ -30,8 +30,7 @@ const Tablet = ({
                 opacity: 0,
                 left: 10
             }}
-
-            idx={idx} className="Table tw-relative tw-p-9 tw-flex tw-justify-center tw-text-white tw-cursor-pointer tw-w-4/12">
+            idx={idx} className="Table tw-relative tw-p-9 tw-flex tw-justify-center tw-text-white tw-cursor-pointer">
             <div onClick={() => {
                 onPress(id)}
                 } className="touch">
@@ -41,20 +40,9 @@ const Tablet = ({
 
                 </div>
                 <div className="tw-p-10">
-                    <img src={Image} />
+                    <img alt='tablet' src={Image} />
                 </div>
-                {/* <Paragraphs size='sm' family='black'>
-                    {code}
-                </Paragraphs>
-                <Paragraphs size={'xs'} italic className="store">{store}</Paragraphs>
-                <div className="tw-flex tw-flex-wrap tw-mt-2">
-                {
-                        campaings.map((i, index) => 
-
-                        <div className="tw-mr-2" key={index}><Paragraphs size={'xs'}>{i.campaing}</Paragraphs></div>
-                    )
-                }
-                </div> */}
+            
             </div>
 
         </Container>

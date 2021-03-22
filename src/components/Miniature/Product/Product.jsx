@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Reference from '../../Reference/Reference'
 import { useHistory } from 'react-router-dom'
-import { Container } from '../../Listing/styles'
+import { Container } from '../Video/styles'
+import { motion } from 'framer-motion'
+import Paragraphs from '../../Paragraphs/Paragraphs'
+
 
 const Product = ({ idx, images, reference, id, accesories, category, price, compare, description, description_short,ean13, name, upc, features, especifications }) => {
     const cover = images.find(i => i.cover === '1')
@@ -10,7 +12,7 @@ const Product = ({ idx, images, reference, id, accesories, category, price, comp
 
     const handleSelect = () => {
         history.push({
-            pathname: '/product',
+            pathname: `/product/${id}`,
             state: {
                 images, ean13, reference, id, accesories, category, price, compare, description, description_short, name, upc, features, especifications
             }
@@ -18,10 +20,36 @@ const Product = ({ idx, images, reference, id, accesories, category, price, comp
     }
     if(!cover) return null
     return (
-        <Container idx={idx} className="Product tw-relative tw-w-2/12" onClick={handleSelect}>
-            <div className="tw-p-5 ">
-                <img alt='product' src={cover ? cover?.url : ''} />
-                <Reference absolute={true} reference={reference} />
+        <Container col={4} idx={idx} className="Product  tw-relative" onClick={handleSelect}>
+            <div className="tw-p-5 tw-flex tw-flex-col tw-items-center tw-justify-center ">
+                <motion.img style={{ maxHeight: 300 }} alt='product' src={cover ? cover?.url : ''} initial={{ 
+                    opacity: 0,
+                    left: -5
+                 }} 
+                 animate={{ 
+                     opacity: 1,
+                     left:0
+                  }}
+                 />
+                <div className="tw-text-center">
+                    <motion.div className="tw-text-center tw-w-full tw-absolute tw-left-0" initial={{ 
+                        bottom: 0,
+                        opacity: 0
+                     }}
+                     animate={{ 
+                         bottom: 10,
+                         opacity: .2
+                      }}
+                      transition={{ 
+                          duration: 1
+                       }}
+                     >
+                        <Paragraphs family='extrabold' size='4xl'  >
+                            {reference}
+                        </Paragraphs>
+                    </motion.div>
+                    
+                </div>
             </div>
         </Container>
     )

@@ -9,7 +9,7 @@ const Especifications = ({ data }) => {
             {
                 data.map(i => <div className="tw-mb-5">
                     <Line className="tw-bg-white" />
-                    <Paragraphs italic family='medium' className="tw-text-black-800" size='sm' key={i.id_especificacion}>{i.data}</Paragraphs>
+                    <Paragraphs italic family='medium' className="tw-text-white" size='sm' key={i.id_especificacion}>{i.data}</Paragraphs>
                 </div>)
             }
         </div>

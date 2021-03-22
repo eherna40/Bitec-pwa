@@ -22,3 +22,16 @@ export const Title = styled.div`
 `
 
 
+export const Overload = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  right: 0;
+background: rgb(255,255,255);
+background: -moz-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 97%);
+background: -webkit-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 97%);
+background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 97%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+
+`
+

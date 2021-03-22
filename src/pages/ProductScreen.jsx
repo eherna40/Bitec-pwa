@@ -1,82 +1,155 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import Layout from '../components/Layout/Layout'
 import Carousel from '../components/Carousel/Carousel'
 import Reference from '../components/Reference/Reference'
 import Name from '../components/ProductScreen/Name/Name'
-import Description from '../components/ProductScreen/Description/Description'
-import Especifications from '../components/ProductScreen/Especifications/Especifications'
 import Selectors from '../components/ProductScreen/Selectors/Selectors'
 import Features from '../components/ProductScreen/Features/Features'
-import Accesories from '../components/ProductScreen/Accesories/Accesories'
-import Title from '../components/ProductScreen/Title'
 import Comprador from '../components/ProductScreen/Comparador'
+import { BtnBack } from '../components/BtnBack/BtnBack'
+import Head from '../components/Head/Head'
+import { motion } from 'framer-motion'
+import ContentInfo from '../components/ContentInfo'
 
 const ProductScreen = () => {
-    const history = useHistory()
-    const {
-        images,
-        name,
-        reference,
-        description,
-        especifications,
-        features,
-        accesories,
-        ean13
-    } = history.location.state
-    const [info, setInfo] = useState(1)
 
-    return (
-        <Layout head={true} btnBack={true} className="Layout" >
-            <div className="tw-flex tw-flex-col tw-h-full ">
-                <div className="tw-flex tw-h-full tw-flex-1">
-                    <div className="tw-w-6/12 tw-flex-1 tw-items-center">
+    const history = useHistory()
+    const [info, setInfo] = useState(1)
+    const [data, setdata] = useState(null)
+
+    useEffect(() => {
+        if (history.location.state)
+            setdata({
+                ...history.location.state
+            })
+        else
+            history.replace('/campaing')
+
+    }, [])
+
+
+    if (data) {
+        const {
+            images,
+            name,
+            reference,
+            description,
+            especifications,
+            features,
+            accesories,
+            ean13
+        } = data
+        return (
+            <div head={true} btnBack={true} className="Layout tw-relative tw-h-screen tw-w-full" style={{
+                paddingTop: 60
+            }}>
+
+                <Head />
+                <BtnBack />
+                <motion.div className="tw-absolute"
+
+                    initial={{
+                        opacity: 0,
+                        top: 30
+                    }}
+                    animate={{
+                        opacity: 1,
+                        top: 70
+                    }}
+                    transition={{
+                        duration: 1
+                    }}
+                    style={{
+                        left: 90,
+                        zIndex: 9999,
+                        maxWidth: '40%'
+                    }}>
+                    <Name name={name} />
+                </motion.div>
+                <Selectors onPress={(i) => setInfo(i)} info={info} />
+
+                <div className="tw-flex tw-h-full ">
+                    <div
+                        className="tw-w-7/12 tw-h-full tw-justify-center tw-items-center">
                         <Carousel images={images} />
+
+
                     </div>
-                    <div className="tw-flex-1 tw-relative tw-p-10 tw-flex tw-flex-col">
-                        <div className="tw-flex-1">
-                            <Reference reference={reference} ean13={ean13} absolute={false} />
-                            <Name name={name} />
-                            <Comprador />
-                            <Description description={description} />
-                            <div className="tw-overflow-auto  tw-rounded-md tw-relative" style={{ maxHeight: 340, boxShadow: '0px 3px 6px rgb(0 0 0 / 20%)', left: -70, backgroundColor: 'lightgray' }}>
-                                <Especifications data={especifications} />
-                            </div>
+                    <div className="tw-w-5/12 tw-h-full tw-justify-center tw-items-center tw-pt-5 ">
+                        <div className="tw-flex tw-justify-between tw-pr-5">
+                            <motion.div initial={{
+                                opacity: 0,
+                                left: -10
+                            }}
+                                animate={{
+                                    opacity: 1,
+                                    left: 0
+                                }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 1
+                                }}
+                            >
+                                <Reference reference={reference} ean13={ean13} absolute={false} />
+                            </motion.div>
+
+                            <motion.div initial={{
+                                opacity: 0,
+                                left: -10
+                            }}
+                                animate={{
+                                    opacity: 1,
+                                    left: 0
+                                }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 2
+                                }}
+                            >
+                                <Comprador />
+                            </motion.div>
 
                         </div>
-                        <Selectors onPress={(i) => setInfo(i)} info={info} />
+                        <motion.div initial={{
+                            opacity: 0,
+                            left: -10
+                        }}
+                            animate={{
+                                opacity: 1,
+                                left: 0
+                            }}
+                            transition={{
+                                duration: 1,
+                                delay: 2
+                            }}
+                        >
+                            {/* <div className="tw-overflow-auto" style={{ maxHeight: 'calc(100vh - 70px - 70px)' }}> */}
+                            <ContentInfo description={description} especifications={especifications} />
+
+
+                        </motion.div>
+
                     </div>
+
+
                 </div>
                 <div
                     style={{
-                        height: 120
+                        height: 120,
+
                     }}
-                    className=""
+                    className="tw-fixed tw-bottom-0 	 tw-z-50 tw-bg-white tw-bg-opacity-90 tw-w-7/12"
+
                 >
-                    {
-                        info === 1 &&
-                        <>
-                           
-                            <Features data={features} />
-                        </>
-                    }
 
-                    {
-                        info === 2 &&
-                        <>
-                            
-                            <Accesories data={accesories} />
-                        </>
-                    }
-
-
-
-
-
+                    <Features info={info} data={info === 1 ? features : accesories} title={info === 1 ? 'Especificaciones' : 'Accesorios'} />
                 </div>
             </div>
-        </Layout>
-    )
+        )
+    }
+
+    else
+        return null
 }
 
 export default ProductScreen

@@ -5,8 +5,8 @@ export const Number = styled.div`
     content: '';
     position: absolute;
     left: 0px;
-    bottom: -10px;
-    width: 35px;
+    bottom: 0px;
+    width: 29px;
     height: 1px;
     background-color: #e9a065;
     }
