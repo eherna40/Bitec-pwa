@@ -12,13 +12,7 @@ const AppRoute = ({
     <Route
       path={path}
       exact={exact}
-      render={({ location }) => {
-    
-        return (
-            <Component />
-          
-        )
-      }}
+      component={Component}
     />
   )
 }

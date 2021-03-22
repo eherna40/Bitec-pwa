@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Container, Round, Rounded } from './styles'
 import Paragraphs from '../Paragraphs/Paragraphs'
+import { motion } from 'framer-motion'
 
 const Tablet = ({
     code,
@@ -9,17 +10,40 @@ const Tablet = ({
     campaings,
     onPress,
     id,
-    idx
+    idx,
+    image: Image
 }) => {
     return (
-        <Container idx={idx} onClick={() => onPress(id)} className="Tablet tw-bg-black-800 tw-p-3 tw-flex tw-text-white tw-m-5 tw-cursor-pointer">
-            <Button className="tw-flex tw-items-center tw-justify-center tw-h-full tw-flex-col">
-                <Round />
-                <Rounded />
-                <Round />
-            </Button>
-            <div className="tw-p-5">
-                <Paragraphs size='sm' family='black'>
+        <Container as={motion.div} initial={{
+            opacity: 0,
+            left: -10
+        }}
+            transition={{
+                duration: .5,
+                delay: idx * 0.1
+            }}
+            animate={{
+                opacity: 1,
+                left: 0
+            }}
+            exit={{
+                opacity: 0,
+                left: 10
+            }}
+
+            idx={idx} className="Table tw-relative tw-p-9 tw-flex tw-justify-center tw-text-white tw-cursor-pointer tw-w-4/12">
+            <div onClick={() => {
+                onPress(id)}
+                } className="touch">
+                <div className="tw-text-center">
+                    <Paragraphs size='3xl' className="tw-text-black-800" family='universe'>{code}</Paragraphs>
+                    <Paragraphs size='base' className="tw-text-black-800" family='universe'>{store}</Paragraphs>
+
+                </div>
+                <div className="tw-p-10">
+                    <img src={Image} />
+                </div>
+                {/* <Paragraphs size='sm' family='black'>
                     {code}
                 </Paragraphs>
                 <Paragraphs size={'xs'} italic className="store">{store}</Paragraphs>
@@ -30,8 +54,9 @@ const Tablet = ({
                         <div className="tw-mr-2" key={index}><Paragraphs size={'xs'}>{i.campaing}</Paragraphs></div>
                     )
                 }
-                </div>
+                </div> */}
             </div>
+
         </Container>
     )
 }

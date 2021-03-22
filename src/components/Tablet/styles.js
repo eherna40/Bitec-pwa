@@ -1,10 +1,19 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Container = styled.div`
-    
-    width: 350px;
-    border-radius: 7px;
-    box-shadow: 5px 2px 10px rgba(0,0,0,.6)
+export const Container = styled(motion.div)`
+
+position: relative;
+    vertical-align: top;
+    width: calc((100% / 3) - 1px);
+    border-bottom: 1px solid #efefef;
+    border-left: 1px solid #efefef;
+    cursor: pointer;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    overflow: hidden;
+}
 `
 
 export const Button = styled.div`

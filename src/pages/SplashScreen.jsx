@@ -1,42 +1,43 @@
-import React, {useEffect} from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '../components/Logo/Logo'
 import Spinner from '../components/Spinner/Spinner'
 import { useHistory } from 'react-router-dom'
 import Layout from '../components/Layout/Layout'
-import * as localForage from "localforage";
-
-localForage.createInstance({
-    name: "worx"
-});
+import StripAnimation from '../components/StripAnimation'
+import useFetch from '../infraestructure/hook/useFetch'
+import BackgroundAnimation from '../components/BackgroundAnimation'
 
 const SplashScreen = () => {
     const history = useHistory()
-    
+    const [doFetch, { data, loading, error }] = useFetch('getTablets')
+    const [onCompleteBackground, setOnCompleteBackground] = useState(false)
+    const [onCompleteText, setOnCompleteText] = useState(false)
+
     useEffect(() => {
-        history.push('/tablets')
-    }, [])
-    // const getItem = () => {
-    //     localForage.getItem('keys', function (err, value) {
-    //         console.log(value, err)
-    //         var url = URL.createObjectURL(value);
-    //         console.log(url)
-    //     });
-    // }
+            if (data) {
+                history.replace('/tablets')
+            }
 
-    // const setItem = () => {
+    }, [data])
 
-    //     fetch('http://techslides.com/demos/sample-videos/small.mp4')
-    //         .then(res => res.blob())
-    //         .then(res => {
-    //             localForage.setItem('keys', res);
-    //         })
-    // }
+    useEffect(() => {
+        if(onCompleteText && onCompleteBackground){
+            doFetch()
+        }
+    }, [onCompleteBackground, onCompleteText])
 
 
     return (
-        <Layout className="Splash tw-bg-black-800 tw-h-full tw-flex tw-items-center tw-justify-center tw-flex-col tw-w-full">
-            <Logo mode='light' size='large' />
-            <Spinner />
+        <Layout className="Splash tw-h-full tw-flex tw-items-center tw-justify-center tw-flex-col tw-w-full">
+            <BackgroundAnimation onAnimtaionEnd={() => setOnCompleteBackground(true)} />
+
+                    <StripAnimation delay={1}  onAnimationComplete={() => setOnCompleteText(true)}>
+                        <Logo mode='light' size='large' />
+                    </StripAnimation>
+                    <Spinner />
+           
+            
+
         </Layout>
 
     )

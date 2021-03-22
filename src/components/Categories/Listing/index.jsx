@@ -1,16 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import ItemTitle from '../ItemTitle/ItemTitle'
 
-const index = props => {
+const Listing = props => {
     return (
         <div>
-            
+            <ItemTitle />
         </div>
     )
 }
 
-index.propTypes = {
 
-}
-
-export default index
+export default Listing

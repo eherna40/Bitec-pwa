@@ -1,14 +1,5 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity : 1;
-  }
-`
 
 export const Content = styled.div`
     background-image: url('splash.jpg');
@@ -16,7 +7,7 @@ export const Content = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     animation-duration: 1s;
-    animation-name: ${fadeIn};
+    opacity: 1;
     padding-left: 65px;
     &::after{
         background-color: rgba(0,0,0,.7);

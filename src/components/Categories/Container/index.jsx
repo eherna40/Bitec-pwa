@@ -4,6 +4,7 @@ import LateralBar from '../LateralBar'
 
 const Container = ({children}) => {
     return (
+
         <Content className='tw-h-screen tw-w-screen tw-relative tw-flex'>
             <LateralBar />
             {children}

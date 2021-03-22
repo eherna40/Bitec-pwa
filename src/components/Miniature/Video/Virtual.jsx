@@ -26,7 +26,7 @@ const Virtual = ({ name, images, url, description, description_short }) => {
             <div className="tw-p-5 ">
                 <div className="tw-overflow-hidden tw-rounded tw-relative">
 
-                    <img src={cover.url} />
+                    <img alt='category' src={cover.url} />
                     <Overload className="tw-absolute tw-top-0 tw-left-0  tw-w-full tw-h-full tw-text-white tw-p-3 tw-flex tw-items-center tw-justify-center">
                         <Play />
                         <div className="tw-absolute tw-bottom-0 tw-left-0 tw-p-4">

@@ -11,3 +11,14 @@ export const Number = styled.div`
     background-color: #e9a065;
     }
 `
+
+
+export const Strip = styled.div`
+    left: 0px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+}
+`

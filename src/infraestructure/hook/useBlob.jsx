@@ -2,7 +2,13 @@ const useBlob = () => {
     const makeFetch = async (url) => {
         try {
             const res = await fetch(url)
-                .then(res => res.blob())
+                .then(res => {
+                    if (res.ok && res.status === 404) {
+                        return null
+                    }
+                    return res.blob()
+                }
+                )
                 .then(res => res)
 
             return res

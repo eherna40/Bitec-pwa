@@ -1,8 +1,12 @@
+import { data } from "autoprefixer";
 import * as localForage from "localforage";
+import { useDispatch } from "react-redux";
+import { actionSetCategories } from "../redux/actions/category";
 import useBlob from "./useBlob";
 
 const useLocalData = () => {
 
+    const dispatch = useDispatch()
     const { makeFetch } = useBlob()
     const setItem = async (key, value) => {
         return await localForage.setItem(key, value).then(res => res)
@@ -19,7 +23,7 @@ const useLocalData = () => {
     const savePrincipalVideo = async (url) => {
         try {
             const res = await makeFetch(url)
-            return setItem('principal', res).then(res => res)
+            return res
         } catch (error) {
             return false
         }
@@ -28,28 +32,47 @@ const useLocalData = () => {
     }
 
     const saveProducts = async (categories) => {
-        let covers = {}
         let category = []
         for (let index = 0; index < categories.length; index++) {
-            const res = await makeFetch(categories[index].cover)
-            covers = {
-                ...covers,
-                [categories[index].id]: res
+            if(categories[index].cover){
+                const res = await makeFetch(categories[index].cover)
+                categories[index][`data_${categories[index].id}`] = res
             }
-            const subcategories = categories[index].subcategories
-            for (let index = 0; index < subcategories.length; index++) {
-                console.log(subcategories[index])
+            for (let e = 0; e < categories[index].subcategories.length; e++) {
+               const subcategory = categories[index].subcategories[e]
+               for (let p = 0; p < subcategory.products.length; p++) {
+                    const product = subcategory.products[p]
+                    const compare = await makeFetch(product.compare)
+                    console.log(compare)
+                    product[`compare_${product.id}`] = compare
+                    if(product.images){
+                        for (let i = 0; i < product.images.length; i++) {
+                            const image = await makeFetch(product.images[i].url)
+                            product.images[i].url_bolb = image
+                        }
+                    }
+
+                    if(product.is_virtual){
+                        const video = await makeFetch(product.url)
+                        product.video_blob = video
+                    }
+                    subcategory.products[p] = product
+               }
+               categories[index].subcategories[e] = subcategory
+
             }
+            category.push(categories[index])
+
         }
-        setItem('covers', covers)
+        return category
     }
 
     const saveData = async (data) => {
-
         const { url, categories } = data
-        ///primero guardamos el video principal
-        const primary = await savePrincipalVideo(url)
-        const products = saveProducts(categories)
+        const video = await savePrincipalVideo(url)
+        const products = await saveProducts(categories)
+        dispatch(actionSetCategories(products, video))
+        return products
     }
 
     return {

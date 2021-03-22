@@ -10,23 +10,25 @@ import LateralBar from '../components/Categories/LateralBar';
 import Lookbook from '../components/Categories/LookBook';
 import Container from '../components/Categories/Container';
 import ItemTitle from '../components/Categories/ItemTitle/ItemTitle';
+import Listing from '../components/Categories/Listing';
 
 
 
 const CategoriesScreen = props => {
-    let history = useHistory();
-    const data = history.location.state.categories
-    console.log(data)
-    const handleSelect = (item)=> {
-        history.push({
-            pathname:'/category',
-            state:{item}
-        })
-    }
+    // let history = useHistory();
+    // const data = history.location.state.categories
+    // console.log(data)
+    // const handleSelect = (item)=> {
+    //     history.push({
+    //         pathname:'/category',
+    //         state:{item}
+    //     })
+    // }
+
     return (
         <Container>
-            <div className="tw-flex-1 tw-pl-20 tw-relative tw-z-10 tw-flex tw-justify-center tw-flex-col">
-                <ItemTitle />
+            <div className="tw-flex-1 tw-pl-20 tw-relative tw-z-10 tw-flex tw-justify-center tw-flex-col" style={{width: 500}}>
+               <Listing/>
             </div>
             <div className="tw-flex-1 tw-relative tw-z-10 tw-flex tw-items-center tw-justify-center">
                 <Lookbook />

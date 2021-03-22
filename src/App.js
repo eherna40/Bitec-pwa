@@ -1,25 +1,21 @@
-import { Switch, BrowserRouter as Router } from 'react-router-dom'
+import {  BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import './styles/index.css';
-import { publicRoutes } from './routes'
-import AppRoute from './routes/route'
+import AnimatedApp from './AnimatedApp';
+import { Provider } from 'react-redux';
+import { persistor, store } from './infraestructure/redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
   return (
-    <Router basename='/webapp'>
-      <Switch>
-        {publicRoutes.map((route, idx) => {
-          return (
-            <AppRoute
-              path={route.path}
-              component={route.component}
-              key={idx}
-              exact={route.exact}
-            />
-          )
-        })}
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
+          <AnimatedApp />
+        </Router>
+      </PersistGate>
+    </Provider>
+
   );
 }
 

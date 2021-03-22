@@ -20,7 +20,7 @@ const Product = ({ idx, images, reference, id, accesories, category, price, comp
     return (
         <Container idx={idx} className="Product tw-relative tw-w-2/12" onClick={handleSelect}>
             <div className="tw-p-5 ">
-                <img src={cover ? cover?.url : ''} />
+                <img alt='product' src={cover ? cover?.url : ''} />
                 <Reference absolute={true} reference={reference} />
             </div>
         </Container>

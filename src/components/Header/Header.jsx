@@ -1,10 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Logo from '../Logo/Logo'
 import { Line } from './styles'
 import Paragraphs from '../Paragraphs/Paragraphs'
 
-const Header = props => {
+const Header = () => {
     return (
         <div className="Header tw-flex">
             <Line className="tw-bg-black-800 tw-mr-2" />
@@ -19,8 +18,6 @@ const Header = props => {
     )
 }
 
-Header.propTypes = {
 
-}
 
 export default Header
