@@ -7,6 +7,7 @@ import ProductScreen from '../pages/ProductScreen'
 import VideoScreen from '../pages/VideoScreen'
 
 import CategoryScreen from '../pages/CategoryScreen'
+import ContactPage from '../pages/ContactPage'
 
 const publicRoutes = [
   { path: '/', component: SplashScreen, id: 0, exact: true },
@@ -15,6 +16,7 @@ const publicRoutes = [
   { path: '/category', component: CategoryScreen, id: 3 },
   { path: '/video', component: VideoScreen, id: 4 },
   { path: '/product', component: ProductScreen, id: 5 },
+  { path: '/contact', component: ContactPage, id: 5 },
 
   ]
 export { publicRoutes }

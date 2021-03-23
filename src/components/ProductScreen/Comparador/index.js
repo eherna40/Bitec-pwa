@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Paragraphs from '../../Paragraphs/Paragraphs'
 import { Modal } from './styles'
 import Demo from '../../../assets/img/demo.png'
-const Comprador = props => {
+const Comprador = ({img}) => {
     const [open, setopen] = useState(false)
     return (
         <div className="Comparador">
@@ -10,9 +10,9 @@ const Comprador = props => {
                 <Paragraphs className="tw-text-white" family='universe'>Compara</Paragraphs>
             </button>
             {
-                open && <Modal onClick={() => setopen(false)} className="tw-fixed tw-h-screen tw-w-screen tw-top-0 tw-left-0 tw-z-50 tw-bg-white tw-bg-opacity-80">
-                    <div className="tw-flex tw-items-center tw-justify-center" >
-                        <img alt='demo' src={Demo} style={{ maxWidth: '80%' }} />
+                open && <Modal onClick={() => setopen(false)} className="tw-fixed tw-h-full tw-w-full tw-top-0 tw-left-0 tw-z-50 tw-bg-white">
+                    <div className="tw-flex tw-items-center tw-justify-center tw-h-full tw-w-full" >
+                        <img alt='demo' src={img} style={{ maxWidth: '50%' }} />
 
                     </div>
                 </Modal>

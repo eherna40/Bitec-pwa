@@ -7,15 +7,15 @@ import CategoryScreen from './pages/CategoryScreen';
 import ProductScreen from './pages/ProductScreen';
 import VideoScreen from './pages/VideoScreen';
 import { useEffect } from 'react';
+import BtnChat from './components/chat/btn-chat';
+import ContactPage from './pages/ContactPage';
 
 function AnimatedApp() {
   const location = useLocation();
-  const history = useHistory()
-
-  useEffect(() => {
-    history.push('/aa')
-  }, [])
   return (
+    <>
+
+    <BtnChat />
     <AnimatePresence exitBeforeEnter>
       <Switch location={location} key={location.pathname}>
         <Route path='/' exact component={SplashScreen} />
@@ -24,8 +24,10 @@ function AnimatedApp() {
         <Route path='/category/:id' component={CategoryScreen} />
         <Route path='/product/:id' component={ProductScreen} />
         <Route path='/video' component={VideoScreen} />
+          <Route path='/contact' component={ContactPage} />
       </Switch>
     </AnimatePresence>
+    </>
 
   );
 }

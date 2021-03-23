@@ -37,8 +37,10 @@ const ProductScreen = () => {
             especifications,
             features,
             accesories,
-            ean13
+            ean13,
+            compare
         } = data
+
         return (
             <div head={true} btnBack={true} className="Layout tw-relative tw-h-screen tw-w-full" style={{
                 paddingTop: 60
@@ -106,7 +108,7 @@ const ProductScreen = () => {
                                     delay: 2
                                 }}
                             >
-                                <Comprador />
+                                <Comprador img={compare} />
                             </motion.div>
 
                         </div>

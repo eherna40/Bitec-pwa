@@ -7,7 +7,6 @@ import useLocalData from '../infraestructure/hook/useLocalData'
 import tablet1 from '../assets/img/tablet_1.png'
 import tablet2 from '../assets/img/tablet_2.png'
 import { motion } from 'framer-motion'
-
 const TabletsScreen = () => {
     const history = useHistory()
     const { saveData } = useLocalData()

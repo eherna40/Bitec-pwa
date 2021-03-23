@@ -3,7 +3,7 @@
 @tailwind utilities;
 @tailwind screens;
 
-/* 
+
 @font-face {
   font-family: 'universe';
   src: local('Universe'), url('../assets/fonts/Univers-ExtraBlackObl.ttf')
@@ -156,3 +156,7 @@ body {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+
+
+

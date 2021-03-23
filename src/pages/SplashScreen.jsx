@@ -6,7 +6,6 @@ import Layout from '../components/Layout/Layout'
 import StripAnimation from '../components/StripAnimation'
 import useFetch from '../infraestructure/hook/useFetch'
 import BackgroundAnimation from '../components/BackgroundAnimation'
-
 const SplashScreen = () => {
     const history = useHistory()
     const [doFetch, { data }] = useFetch('getTablets')
@@ -17,7 +16,7 @@ const SplashScreen = () => {
         if (data) {
             history.replace('/tablets')
         }
-
+        
     }, [data])
 
     useEffect(() => {
