@@ -1,12 +1,13 @@
 import React from 'react'
 import { BoxInfo } from '../components/BoxInfo'
+import { BtnBack } from '../components/BtnBack/BtnBack'
 import Form from '../components/Contact/Form'
 import Logo from '../components/Logo/Logo'
-import Paragraphs from '../components/Paragraphs/Paragraphs'
 
 const ContactPage = props => {
     return (
         <div className="tw-flex tw-flex-col tw-h-screen tw-bg-black-800">
+            <BtnBack />
             <div className="tw-flex tw-justify-center tw-items-center" style={{ height: 80 }}>
                 <Logo size={'small'} mode='light'/>
             </div>
