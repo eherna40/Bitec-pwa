@@ -42,40 +42,29 @@ const ProductScreen = () => {
         } = data
 
         return (
-            <div head={true} btnBack={true} className="Layout tw-relative tw-h-screen tw-w-full" style={{
-                paddingTop: 60
-            }}>
+            <div head={true} btnBack={true} className="Layout tw-relative tw-h-screen tw-w-full tw-flex">
 
                 <Head />
                 <BtnBack />
-                <motion.div className="tw-absolute"
+                
+                <div className="tw-w-6/12 tw-h-full">
+                    <Name name={name} description={description} />
+                    <Carousel images={images} />
+                </div>
+                <div className="tw-w-6/12 tw-h-full tw-relative tw-flex tw-flex-col">
+                    <Reference reference={reference} ean13={ean13} absolute={false} />
+                    <div className="tw-flex-1">
+                        <ContentInfo description={description} especifications={especifications} />
+                    </div>
+                    
+                </div>
 
-                    initial={{
-                        opacity: 0,
-                        top: 30
-                    }}
-                    animate={{
-                        opacity: 1,
-                        top: 70
-                    }}
-                    transition={{
-                        duration: 1
-                    }}
-                    style={{
-                        left: 90,
-                        zIndex: 9999,
-                        maxWidth: '40%'
-                    }}>
-                    <Name name={name} />
-                </motion.div>
-                <Selectors onPress={(i) => setInfo(i)} info={info} />
+                {/* <Selectors onPress={(i) => setInfo(i)} info={info} /> */}
 
-                <div className="tw-flex tw-h-full ">
+                {/* <div className="tw-flex tw-h-full ">
                     <div
                         className="tw-w-7/12 tw-h-full tw-justify-center tw-items-center">
                         <Carousel images={images} />
-
-
                     </div>
                     <div className="tw-w-5/12 tw-h-full tw-justify-center tw-items-center tw-pt-5 ">
                         <div className="tw-flex tw-justify-between tw-pr-5">
@@ -125,7 +114,6 @@ const ProductScreen = () => {
                                 delay: 2
                             }}
                         >
-                            {/* <div className="tw-overflow-auto" style={{ maxHeight: 'calc(100vh - 70px - 70px)' }}> */}
                             <ContentInfo description={description} especifications={especifications} />
 
 
@@ -134,8 +122,8 @@ const ProductScreen = () => {
                     </div>
 
 
-                </div>
-                <div
+                </div> */}
+                {/* <div
                     style={{
                         height: 120,
 
@@ -145,7 +133,7 @@ const ProductScreen = () => {
                 >
 
                     <Features info={info} data={info === 1 ? features : accesories} title={info === 1 ? 'Especificaciones' : 'Accesorios'} />
-                </div>
+                </div> */}
             </div>
         )
     }

@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    position: ${props => props.absolute ? 'absolute' : 'relative'};
-    bottom: ${props => props.absolute ? '10px' : '0px'};
-    right: ${props => props.absolute ? '10px' : '0px'};
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 3%;
+    background: white;
+    top: 20px;
+    padding: 30px;
 
 `
 

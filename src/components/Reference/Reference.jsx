@@ -12,11 +12,11 @@ const Reference = ({ reference,
         <Container absolute={absolute}>
             <div className="line tw-flex tw-items-end">
                 <Paragraphs uppercase size={'xs'} family='bold' className={`tw-text-${textAlign} tw-text-black-800`}>
-                    {ean13}
+                    Ref. L.M.:  {ean13}
             </Paragraphs>
             </div>
             <Paragraphs family='extrabold' size='2xl' className={`tw-text-${textAlign} tw-opacity-10`}>
-                {reference}
+             {reference}
             </Paragraphs>
 
         </Container>

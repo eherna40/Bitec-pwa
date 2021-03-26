@@ -14,3 +14,9 @@ export const Group = styled.div`
     transform: scale(1.5)
 }
 `
+
+
+export const Box = styled.div`
+    height: 80px;
+    width: 80px;
+`

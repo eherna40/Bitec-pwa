@@ -5,21 +5,25 @@ import { Container, Content } from './style'
 
 const Head = () => {
     return (
-        <Container as={motion.div} initial={{
-            opacity: 0
+        <Container as={motion.div} 
+        initial={{
+            opacity: 0,
+            left: 10
         }}
             animate={{
                 opacity: 1,
+                left: 40
             }}
             exit={{
-                opacity: 0
+                opacity: 0,
+
             }}
             transition={{
                 duration: 1
             }}
-            className="Head tw-bg-black-900 tw-fixed tw-w-full tw-flex tw-items-center tw-top-0 tw-left-0" >
-            <Content className="tw-ml-20">
-                <Logo mode='light' />
+            className="Head tw-bg-black-900 tw-fixed  tw-flex tw-items-center" >
+            <Content className="tw-flex tw-items-center tw-justify-center">
+                <Logo mode='light'  size={'small'}/>
             </Content>
         </Container>
     )
