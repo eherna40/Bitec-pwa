@@ -17,6 +17,13 @@ export const Group = styled.div`
 
 
 export const Box = styled.div`
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
+    background-image:${props => `url(${props.image})`};
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-size: 100px;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
 `

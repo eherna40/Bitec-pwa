@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import Paragraphs from '../../Paragraphs/Paragraphs'
 import { Modal } from './styles'
-import Demo from '../../../assets/img/demo.png'
-const Comprador = ({img}) => {
+const Compare = ({img}) => {
     const [open, setopen] = useState(false)
     return (
         <div className="Comparador">
@@ -23,4 +22,4 @@ const Comprador = ({img}) => {
 }
 
 
-export default Comprador
+export default Compare

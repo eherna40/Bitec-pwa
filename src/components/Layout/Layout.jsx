@@ -7,7 +7,7 @@ import { Container } from './style'
 
 const Layout = ({children, className, header, btnBack, head, padding}) => {
     return (
-        <Container padding={padding} head={head} className={`tw-h-screen tw-w-full ${className}`}>
+        <div padding={padding} head={head} className={`tw-h-screen tw-w-full ${className}`}>
         {
             head && <Head />
         }
@@ -19,7 +19,7 @@ const Layout = ({children, className, header, btnBack, head, padding}) => {
         }
            
             {children}
-        </Container>
+        </div>
     )
 }
 

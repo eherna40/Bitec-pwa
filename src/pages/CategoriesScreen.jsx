@@ -21,9 +21,6 @@ const CategoriesScreen = props => {
             <div className="tw-flex-1 tw-pl-20 tw-relative tw-z-10 tw-flex tw-justify-center tw-flex-col" style={{ width: 500 }}>
                 <Listing data={data} />
             </div>
-            <div className="tw-flex-1 tw-relative tw-z-10 tw-flex tw-items-center tw-justify-center">
-                <Lookbook />
-            </div>
 
         </Container>
 

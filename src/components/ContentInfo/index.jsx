@@ -23,7 +23,7 @@ const ContentInfo = ({ description, especifications }) => {
 
         >
                 <Inner
-                    className="tw-h-full tw-absolute tw-w-full  tw-overflow-auto   tw-top-0  tw-p-10">
+                    className="tw-h-full tw-absolute tw-w-full  tw-overflow-auto   tw-top-0  tw-p-10 tw-pt-36">
                     <Especifications data={especifications} />
                 </Inner>
         </Container>

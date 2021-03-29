@@ -23,7 +23,7 @@ const CategoryScreen = props => {
     }, [])
 
     return (
-        <Layout head={true} className="CateogryScreen" btnBack>
+        <Layout head={true} className="CateogryScreen tw-flex" btnBack>
             <motion.div
             
             onAnimationComplete={() => setonCompleteAnimation(true)}
@@ -47,12 +47,10 @@ const CategoryScreen = props => {
             >
             </motion.div>
             {
-                onCompleteAnimation && <>
-                    <Tabs categories={subcategories} onPress={handleSelect} />
-                    <Listing products={products} />
-                </>
+                onCompleteAnimation && <Tabs categories={subcategories} onPress={handleSelect} />
+                
             }
-          
+
         </Layout>
     )
 }

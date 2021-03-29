@@ -3,14 +3,10 @@ import { useHistory } from 'react-router-dom'
 import Carousel from '../components/Carousel/Carousel'
 import Reference from '../components/Reference/Reference'
 import Name from '../components/ProductScreen/Name/Name'
-import Selectors from '../components/ProductScreen/Selectors/Selectors'
-import Features from '../components/ProductScreen/Features/Features'
-import Comprador from '../components/ProductScreen/Comparador'
 import { BtnBack } from '../components/BtnBack/BtnBack'
 import Head from '../components/Head/Head'
-import { motion } from 'framer-motion'
 import ContentInfo from '../components/ContentInfo'
-
+import Compare from '../components/ProductScreen/Comparador'
 const ProductScreen = () => {
 
     const history = useHistory()
@@ -53,6 +49,9 @@ const ProductScreen = () => {
                 </div>
                 <div className="tw-w-6/12 tw-h-full tw-relative tw-flex tw-flex-col">
                     <Reference reference={reference} ean13={ean13} absolute={false} />
+                    <div className="tw-absolute tw-right-20 tw-top-10 tw-z-50">
+                    <Compare img={compare} />
+                    </div>
                     <div className="tw-flex-1">
                         <ContentInfo description={description} especifications={especifications} />
                     </div>

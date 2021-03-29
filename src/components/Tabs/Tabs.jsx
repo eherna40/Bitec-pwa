@@ -1,20 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-import { Container } from './styles'
+import { Box, Container } from './styles'
 import Paragraphs from '../Paragraphs/Paragraphs'
+import { motion } from 'framer-motion'
 
 const Tabs = ({ categories, onPress }) => {
     return (
-        <Container className="Tabs tw-w-full tw-h-20">
-            <div className="tw-border-b tw-flex tw-overflow-auto">
+        <Container className="Tabs tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-h-full tw-w-full">
                 {
-                    categories.map(i => {
-                        return <div onClick={() => onPress(i)} className="tw-text-primary tw-p-7 tw-whitespace-nowrap tw-cursor-pointer">
+                    categories.map((i, idx) => {
+                        return <Box as={motion.div} onClick={() => onPress(i)} className="tw-relative tw-text-primary  tw-cursor-pointer tw-flex align-items-center tw-justify-center">
+                            <motion.div
+                            initial={{
+                                opacity: 0,
+                                x: -10
+                            }}
+                            animate={{
+                                opacity: 1,
+                                x: 0
+                            }}
+                            transition={{
+                                duration: .4,
+                                delay:(idx * 0.3)
+                            }}
+                            >
                             <Paragraphs size='xl' family='universe' uppercase>{i.name}</Paragraphs>
-                        </div>
+
+                            </motion.div>
+                                
+                         
+                        </Box>
                     })
                 }
-            </div>
         </Container>
     )
 }

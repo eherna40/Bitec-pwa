@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Carousels from '@brainhubeu/react-carousel';
+import Carousel, { slidesToShowPlugin, Dots } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import { motion } from 'framer-motion';
 import { Box } from './style';
 
-const Carousel = ({ images }) => {
+const Carousels = ({ images }) => {
+    const [indice, setIndice] = useState(0)
     return (
         <motion.div
             initial={{
@@ -18,23 +19,35 @@ const Carousel = ({ images }) => {
                 duration: 1.3,
                 delay: 0
             }}
-            className="tw-h-full tw-relative"
+            className="tw-relative tw-h-full"
 
         >
-            <div className="tw-absolute tw-left-4 tw-top-72 tw-z-30">
+            {/* <div className="tw-absolute tw-w-6/12 tw-flex tw-bottom-0 tw-z-30">
                 {
                     images.map(i => {
-                        return <Box className="tw-rounded-md tw-overflow-hidden tw-shadow-md tw-mb-4" >
+                        return <Box className="tw-rounded-md tw-mx-3 tw-overflow-hidden tw-shadow-md tw-mb-4" >
                             <img src={i.url} />
                         </Box>
                     })
                 }
-            </div>
+                {
+                    images.map(i => {
+                        return <Box className="tw-rounded-md tw-mx-3 tw-overflow-hidden tw-shadow-md tw-mb-4" >
+                            <img src={i.url} />
+                        </Box>
+                    })
+                }
+            </div> */}
 
-            <Carousels
-                className="tw-w-full tw-h-full tw-flex tw-items-center tw-justify-center"
-                plugins={[
-                    'centered']}
+            <Carousel
+                value={indice}
+                arrows
+                infinite
+                clickToChange
+                keepDirectionWhenDragging
+                slidesPerPage={1}
+                onChange={(e) => setIndice(e)}
+
             >
                 {
                     images.map(i => {
@@ -42,8 +55,17 @@ const Carousel = ({ images }) => {
 
                     })
                 }
-            </Carousels>
 
+            </Carousel>
+            <div className="tw-absolute tw-bottom-0 tw-w-full tw-flex tw-items-center tw-justify-center">
+            <Dots
+                value={indice}
+                number={images.length}
+                thumbnails={images.map((i, idx) => <Box onClick={() => setIndice(idx)} image={i.url}/>)}
+            />
+
+            </div>
+           
 
 
 
@@ -51,12 +73,12 @@ const Carousel = ({ images }) => {
     )
 }
 
-Carousel.propTypes = {
+Carousels.propTypes = {
     images: PropTypes.array
 }
 
-Carousel.defaultProps = {
+Carousels.defaultProps = {
     images: []
 }
 
-export default Carousel
+export default Carousels
