@@ -9,4 +9,5 @@ top: 85px;
 left: -1;
 border-left: none;
 cursor: pointer;
+z-index: 50;
 `

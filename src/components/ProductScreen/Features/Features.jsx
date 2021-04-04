@@ -1,34 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Paragraphs from '../../Paragraphs/Paragraphs'
-import Title3 from '../Title'
-import { Overload } from './style'
+import { motion } from 'framer-motion'
 
-const Features = ({ data, title, info }) => {
+const Features = ({ data, selected, info }) => {
+    const [state, setState] = useState([])
+
+    useEffect(() => {
+        setState([])
+        setTimeout(() => {
+            setState(data)
+        }, 100);
+
+    }, [data])
+
     return (
-        <>
-            <Overload />
-            <Title3 title={title} />
 
-            <div className="Accesories tw-relative tw-h-full tw-overflow-auto tw-p-5 tw-flex " style={{ 
-                width: 'calc(100vw - 70%)'
-             }}>
-                {
-                    data.map(i => {
-                        return <div className="tw-mx-5" style={{ 
-                            minWidth: 120
-                         }}>
-                            <div style={{ height: 32 }}>
-                                <Paragraphs uppercase family='extrabold' size='xs' className="tw-text-grey-400 tw-mb-2">{info === 1 ? i.name : i.name + ' Unidad/es'}</Paragraphs>
-                            </div>
-                            <div>
-                                <Paragraphs uppercase size='sm' className="tw-text-black-700" family='universe' italic>{i.value}</Paragraphs>
-                            </div>
+        <div className="Accesories tw-relative tw-h-full tw-p-5  ">
+            {
+                state.reverse().map((i, idx) => {
+                    return <motion.div className="tw-mb-6"
+
+                        initial={{
+                            opacity: 0,
+                            x: -10
+                        }}
+                        animate={{
+                            opacity: 1,
+                            x: 0
+                        }}
+                        transition={{
+                            delay: idx * 0.2
+                        }}
+
+                    >
+                        <div>
+                            <Paragraphs uppercase family='extrabold' size='xs' className="tw-text-white">{Number(selected) === 1 ? i.name : i.name + ' Unidad/es'}</Paragraphs>
                         </div>
-                    })
-                }
-            </div>
-        </>
+                        <div>
+                            <Paragraphs uppercase size='sm' className="tw-text-white" family='universe' italic>{i.value}</Paragraphs>
+                        </div>
+                    </motion.div>
+                })
+            }
+        </div>
     )
 }
 

@@ -15,7 +15,7 @@ const ItemTitle = ({ name, idx, id }) => {
             onClick={() => setstate(!state)}
         >
             <StripAnimation onAnimationComplete={null} className="tw-mb-3">
-                <Link to={`/category/${id}`} className="ItemTitle tw-flex tw-float-left tw-clear-both tw-relative tw-overflow-hidden tw-p-4">
+                <Link to={{ pathname: `/category/${id}`, state: { name } }} className="ItemTitle tw-flex tw-float-left tw-clear-both tw-relative tw-overflow-hidden tw-p-4">
                     <Number className="number tw-relative">
                         <Paragraphs family='extralight' size='3xl' className="tw-text-white">{idx < 10 ? `0${idx + 1}` : idx}.</Paragraphs>
                     </Number>

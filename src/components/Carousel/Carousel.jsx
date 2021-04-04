@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Carousel, { slidesToShowPlugin, Dots } from '@brainhubeu/react-carousel';
+import Carousel, { Dots } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import { motion } from 'framer-motion';
 import { Box } from './style';
@@ -41,13 +41,15 @@ const Carousels = ({ images }) => {
 
             <Carousel
                 value={indice}
-                arrows
-                infinite
+                // infinite
+                itemWidth={500}
+                centered
+                offset={20}
                 clickToChange
                 keepDirectionWhenDragging
-                slidesPerPage={1}
+                slidesPerPage={2}
                 onChange={(e) => setIndice(e)}
-
+            className="tw-h-full tw-pt-26"
             >
                 {
                     images.map(i => {
@@ -57,7 +59,7 @@ const Carousels = ({ images }) => {
                 }
 
             </Carousel>
-            <div className="tw-absolute tw-bottom-0 tw-w-full tw-flex tw-items-center tw-justify-center">
+            <div className="tw-absolute tw-bottom-0 tw-left-10 tw-w-full tw-flex tw-items-center tw-justify-center">
             <Dots
                 value={indice}
                 number={images.length}

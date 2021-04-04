@@ -1,18 +1,17 @@
-import { SET_CATEGORES } from '../constants/category'
-import { OFF_TIMER, ON_TIMER } from '../constants/session'
+import { OFF_VIDEO, ON_VIDEO } from "../constants/session"
 
 const initialState = {
-  onVideo
+  onVideo: false
 }
 
-const categoryReducer = (state = initialState, action) => {
+const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ON_TIMER:
+    case ON_VIDEO:
         return {
             ...state,
            onVideo: true
         }
-    case OFF_TIMER:
+    case OFF_VIDEO:
       return {
         ...state,
         onVideo: false
@@ -22,4 +21,4 @@ const categoryReducer = (state = initialState, action) => {
   }
 }
 
-export default categoryReducer
+export default sessionReducer

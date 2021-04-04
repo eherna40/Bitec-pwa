@@ -1,12 +1,12 @@
-import { OFF_TIMER, ON_TIMER } from "../constants/session"
+import { OFF_VIDEO, ON_VIDEO } from "../constants/session"
 
-  export const actionOnTimer = () => ({
-    type: ON_TIMER,
+  export const actionOnVideo = () => ({
+    type: ON_VIDEO,
     onVideo: true
   })
   
 
-export const actionOffTimer = () => ({
-  type: OFF_TIMER,
+export const actionOFFVideo = () => ({
+  type: OFF_VIDEO,
   onVideo: false
 })

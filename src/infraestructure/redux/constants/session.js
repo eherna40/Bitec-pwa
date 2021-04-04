@@ -1,2 +1,2 @@
-export const ON_TIMER = 'ON_TIMER'
-export const OFF_TIMER = 'OFF_TIMER'
+export const ON_VIDEO = 'ON_VIDEO'
+export const OFF_VIDEO = 'OFF_VIDEO'

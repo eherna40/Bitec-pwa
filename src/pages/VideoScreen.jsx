@@ -4,22 +4,29 @@ import ReactPlayer from 'react-player'
 import { useHistory } from 'react-router-dom'
 import FloatInfo from '../components/FloatInfo/FloatInfo'
 import { motion } from 'framer-motion'
+import { useDispatch } from 'react-redux'
+import { actionOFFVideo, actionOnVideo } from '../infraestructure/redux/actions/session'
 
 const VideoScreen = () => {
     const history = useHistory()
     const [videos, setvideos] = useState(false)
+    const dispatch = useDispatch()
     useEffect(() => {
         if (history.location.state) {
             setvideos({
                 ...history.location.state
             })
+            dispatch(actionOnVideo())
         }
         else {
             history.goBack()
         }
+        return () => {
+            dispatch(actionOFFVideo())
+        }
     }, [])
 
-
+    
     return (
         <Layout className="tw-bg-black-900" padding={true}>
             {
@@ -37,10 +44,13 @@ const VideoScreen = () => {
                         duration: 1
                     }}
                     className="tw-h-full tw-w-full tw-relative" onClick={() => history.goBack()}>
-                    <FloatInfo
-                        name={videos.name}
-                        description_short={videos.description_short}
-                    />
+                    {
+                        videos.name && <FloatInfo
+                            name={videos.name}
+                            description_short={videos.description_short}
+                        />
+                    }
+
                     <ReactPlayer url={videos.url}
                         playing={true}
                         width={'100%'}

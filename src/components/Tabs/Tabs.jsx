@@ -1,16 +1,24 @@
-import React, {useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Container } from './styles'
+import { Box, Container, ContentBox } from './styles'
 import Paragraphs from '../Paragraphs/Paragraphs'
 import { motion } from 'framer-motion'
+import { useHistory } from 'react-router'
 
-const Tabs = ({ categories, onPress }) => {
+const Tabs = ({ categories }) => {
+    const history = useHistory()
+    const handleClick = (item)=> {
+        history.push('/listing',{
+            data: item
+        })
+    }
+
     return (
-        <Container className="Tabs tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-h-full tw-w-full">
+        <Container className="Tabs tw-flex tw-flex-wrap tw-items-center tw-justify-center ">
                 {
                     categories.map((i, idx) => {
-                        return <Box as={motion.div} onClick={() => onPress(i)} className="tw-relative tw-text-primary  tw-cursor-pointer tw-flex align-items-center tw-justify-center">
-                            <motion.div
+                        return <Box as={motion.div} 
+                        
                             initial={{
                                 opacity: 0,
                                 x: -10
@@ -21,12 +29,14 @@ const Tabs = ({ categories, onPress }) => {
                             }}
                             transition={{
                                 duration: .4,
-                                delay:(idx * 0.3)
+                                delay: idx * 0.5
                             }}
-                            >
-                            <Paragraphs size='xl' family='universe' uppercase>{i.name}</Paragraphs>
+                        onClick={() => handleClick(i)} className=" tw-mx-4 tw-my-5 tw-relative">
+                            <ContentBox className="content-box tw-w-full tw-h-full tw-bg-primary tw-text-white  tw-cursor-pointer tw-py-10 tw-text-center tw-justify-center ">
+                                <Paragraphs size='xl' family='universe' uppercase>{i.name}</Paragraphs>
 
-                            </motion.div>
+                            </ContentBox>
+
                                 
                          
                         </Box>

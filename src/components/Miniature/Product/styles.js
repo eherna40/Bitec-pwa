@@ -1,17 +1,30 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 
-const fadeIn = keyframes`
-  0% {
-    left: -60px;
+
+const getSize = (length)=> {
+  const rounded = Math.ceil(length / 4)
+  if(rounded > 1){
+    return 2
   }
-  100% {
-    left: 0px;
-  }
-`
+  return rounded
+}
 
 export const Container = styled.div`
-    animation-duration: ${props => props.idx / 100 + 's'};
-  animation-name: ${fadeIn};
-`
+position: relative;
+display: inline-block;
+    vertical-align: top;
+    width: ${props => `calc((100% / ${props.col || 3}))`};
+    border-bottom: ${props => !props.noBorder && '1px solid #efefef'} ;
+        border-left: ${props => !props.noBorder && '1px solid #efefef'} ;
 
+      height: ${props => `calc(100vh / ${getSize(props.length)})`};
+
+    cursor: pointer;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+`

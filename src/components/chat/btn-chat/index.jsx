@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { ZendeskAPI } from "react-zendesk";
+import { useIdleTimer } from 'react-idle-timer'
 
 import Commnets from '../../../assets/img/comments.svg'
 import Paragraphs from '../../Paragraphs/Paragraphs';
 import Zendesk from "react-zendesk";
 import { useHistory } from 'react-router';
-import ContactPage from '../../../pages/ContactPage';
-const ZENDESK_KEY = "9207f350-8859-42cd-8262-9f2395397d77";
+const ZENDESK_KEY = "baa783a3-6b63-473c-80cc-239618e0b981";
 
 const setting = {
     color: {
@@ -21,7 +21,20 @@ const setting = {
         }
     },
     webWidget: {
-        offset: { horizontal: '0px', vertical: '0px', zIndex: 999 }
+        offset: { horizontal: '0px', vertical: '0px', zIndex: 999 },
+        contactForm: {
+            suppress: true
+        },
+        helpCenter: {
+            suppress: true
+        },
+        talk: {
+            suppress: true
+        },
+        answerBot: {
+            suppress: true
+        },
+        hideWhenOffline: true
     },
     contactForm: {
         fields: [
@@ -33,11 +46,29 @@ const setting = {
 
 
 const BtnChat = () => {
+
+
+
+
+
+
     const history = useHistory()
     const [active, setActive] = useState(false)
     const onLoadZendesk = () => {
         ZendeskAPI('webWidget:on', 'chat:status', isActive)
+        ZendeskAPI('webWidget:on', 'chat:start', () => reset())
     }
+    const clearChat = (e)=> {
+        ZendeskAPI('webWidget', 'clear')
+        ZendeskAPI('webWidget', 'chat:end')
+        ZendeskAPI('webWidget', 'close')
+        pause()
+    }
+
+    const { pause, reset } = useIdleTimer({
+        timeout: 180000,
+        onIdle: clearChat,
+    })
     const isActive = (e) => {
         if (e === 'online') {
             setActive(true)
@@ -51,7 +82,7 @@ const BtnChat = () => {
     }
     const onPress = () => {
         if (!active) {
-            history.push('contact')
+            history.push('/contact')
             ZendeskAPI('webWidget', 'hide')
 
         }
@@ -68,8 +99,8 @@ const BtnChat = () => {
     return (
         <>
             {
-                !active && <div onClick={onPress} className="tw-absolute tw-bottom-10 tw-right-10 tw-z-50 tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-full tw-cursor-pointer">
-                    <img src={Commnets} width={20} />
+                !active && <div onClick={onPress} className="tw-fixed tw-bottom-10 tw-right-10 tw-z-50 tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-full tw-cursor-pointer">
+                    <img alt='preguntanos' src={Commnets} width={20} />
                     <Paragraphs family='universe' className="tw-ml-3">
                         PREGUNTANOS
             </Paragraphs>

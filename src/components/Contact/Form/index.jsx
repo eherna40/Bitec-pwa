@@ -4,17 +4,15 @@ import { Textarea, Container } from './styles'
 import { useForm } from "react-hook-form";
 import TextInput from '../../TextInput';
 import Paragraphs from '../../Paragraphs/Paragraphs';
-import useFetch from '../../../infraestructure/hook/useFetch';
 import { sendM } from '../../../infraestructure/api/API'
 import { useHistory } from 'react-router';
 const Form = () => {
     const history = useHistory()
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm();
     const [show, setshow] = useState(false)
     const onSubmit = async (data) => {
-        const res = await sendM(data.name, data.email, data.phone)
+        await sendM(data.name, data.email, data.phone)
         setshow(true)
-
         setTimeout(() => {
             history.goBack()
         }, 2000);
@@ -23,9 +21,9 @@ const Form = () => {
     return (
         <Container onSubmit={handleSubmit(onSubmit)} className="tw-h-full">
             <div className="tw-w-full">
-                <label class="tw-mb-3 tw-block tw-italic tw-text-white">Deje su nombre</label>
+                <label class="tw-mb-3 tw-block tw-italic tw-text-white">Deje su mensaje</label>
                 <Textarea
-                    placeholder='Tu nombre'
+                    placeholder='Hola, buenos días'
                     ref={register} autoFocus={true} class="mod-textarea motionIn" name="name"></Textarea>
             </div>
             <div className="tw-flex">

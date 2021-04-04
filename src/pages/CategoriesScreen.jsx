@@ -1,21 +1,17 @@
 
-import React, { useEffect } from 'react'
-import Lookbook from '../components/Categories/LookBook';
+import React from 'react'
 import Container from '../components/Categories/Container';
 import Listing from '../components/Categories/Listing';
 import { useSelector } from 'react-redux';
 
-import { useIdleTimer } from 'react-idle-timer'
 
 
 const CategoriesScreen = props => {
 
 
 
-    const { data, video } = useSelector(state => state.categoryReducer)
-    useEffect(() => {
-        console.log(data)
-    }, [])
+    const { data } = useSelector(state => state.categoryReducer)
+
     return (
         <Container>
             <div className="tw-flex-1 tw-pl-20 tw-relative tw-z-10 tw-flex tw-justify-center tw-flex-col" style={{ width: 500 }}>

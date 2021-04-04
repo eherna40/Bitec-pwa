@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
-import { Container } from '../Video/styles'
+import { Container } from './styles'
 import { motion } from 'framer-motion'
 import Paragraphs from '../../Paragraphs/Paragraphs'
 
 
-const Product = ({ idx, images, reference, id, accesories, category, price, compare, description, description_short,ean13, name, upc, features, especifications }) => {
+const Product = ({ length, idx, images, reference, id, accesories, category, price, compare, description, description_short,ean13, name, upc, features, especifications }) => {
     const cover = images.find(i => i.cover === '1')
     const history = useHistory()
 
@@ -20,8 +20,8 @@ const Product = ({ idx, images, reference, id, accesories, category, price, comp
     }
     if(!cover) return null
     return (
-        <Container col={4} idx={idx} className="Product  tw-relative" onClick={handleSelect}>
-            <div className="tw-p-5 tw-flex tw-flex-col tw-items-center tw-justify-center ">
+        <Container length={length} col={4} idx={idx} className="Product  tw-relative" onClick={handleSelect}>
+            <div className="tw-p-5 tw-h-full tw-flex tw-flex-col tw-items-center tw-justify-center ">
                 <motion.img style={{ maxHeight: 300 }} alt='product' src={cover ? cover?.url : ''} initial={{ 
                     opacity: 0,
                     left: -5

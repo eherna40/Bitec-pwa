@@ -6,7 +6,7 @@ import Play from '../../Play/Play'
 import { useHistory } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-const Virtual = ({ name, images, url, description, description_short, idx }) => {
+const Virtual = ({ name, images, url, description, description_short, idx, length }) => {
     const history = useHistory()
     const handleOpen = () => {
         history.push({
