@@ -25,7 +25,7 @@ const categories = useSelector(state => state.categoryReducer)
 
     useEffect(() => {
         if (onCompleteText && onCompleteBackground) {
-            if(online && !categories.data){
+            if(online && categories.data && categories.data.length === 0){
                 doFetch()
             }else{
                 history.replace('/campaing')

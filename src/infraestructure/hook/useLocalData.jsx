@@ -29,10 +29,11 @@ const useLocalData = () => {
             }
             for (let e = 0; e < categories[index].subcategories.length; e++) {
                const subcategory = categories[index].subcategories[e]
+               const miniatura = await makeFetch(subcategory.miniatura);
+               subcategory.miniatura_url = miniatura;
                for (let p = 0; p < subcategory.products.length; p++) {
                     const product = subcategory.products[p]
                     const compare = await makeFetch(product.compare)
-                    console.log(compare)
                     product[`compare_${product.id}`] = compare
                     if(product.images){
                         for (let i = 0; i < product.images.length; i++) {

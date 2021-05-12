@@ -24,7 +24,7 @@ const TabletsScreen = () => {
             const { status, data } = await selectTablet(id)
             if (status === 'success') {
                 const categories = await saveData(data)
-                history.push({
+                history.replace({
                     pathname: '/campaing',
                     data: categories
                 })

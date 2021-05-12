@@ -6,6 +6,7 @@ import Commnets from '../../../assets/img/comments.svg'
 import Paragraphs from '../../Paragraphs/Paragraphs';
 import Zendesk from "react-zendesk";
 import { useHistory } from 'react-router';
+import { useNetworkState } from 'react-use';
 const ZENDESK_KEY = "baa783a3-6b63-473c-80cc-239618e0b981";
 
 const setting = {
@@ -47,6 +48,7 @@ const setting = {
 
 const BtnChat = () => {
 
+const { online } = useNetworkState();
 
 
 
@@ -97,23 +99,28 @@ const BtnChat = () => {
     }
 
     return (
-        <>
-            {
-                !active && <div onClick={onPress} className="tw-fixed tw-bottom-10 tw-right-10 tw-z-50 tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-full tw-cursor-pointer">
-                    <img alt='preguntanos' src={Commnets} width={20} />
-                    <Paragraphs family='universe' className="tw-ml-3">
-                        PREGUNTANOS
+      <>
+        {!active && (
+          <div
+            onClick={onPress}
+            className="tw-fixed tw-bottom-10 tw-right-10 tw-z-50 tw-flex tw-bg-primary tw-px-4 tw-py-2 tw-rounded-full tw-cursor-pointer"
+          >
+            <img alt="preguntanos" src={Commnets} width={20} />
+            <Paragraphs family="universe" className="tw-ml-3">
+              PREGUNTANOS
             </Paragraphs>
-                </div>
-
-
-
-            }
-            <Zendesk defer zendeskKey={ZENDESK_KEY} {...setting} onLoaded={onLoadZendesk} />
-
-
-        </>
-    )
+          </div>
+        )}
+        {online && (
+          <Zendesk
+            defer
+            zendeskKey={ZENDESK_KEY}
+            {...setting}
+            onLoaded={onLoadZendesk}
+          />
+        )}
+      </>
+    );
 }
 
 export default BtnChat
