@@ -6,12 +6,13 @@ import Layout from '../components/Layout/Layout'
 import StripAnimation from '../components/StripAnimation'
 import useFetch from '../infraestructure/hook/useFetch'
 import BackgroundAnimation from '../components/BackgroundAnimation'
+import { useNetworkState } from 'react-use'
 const SplashScreen = () => {
     const history = useHistory()
     const [doFetch, { data }] = useFetch('getTablets')
     const [onCompleteBackground, setOnCompleteBackground] = useState(false)
     const [onCompleteText, setOnCompleteText] = useState(false)
-
+const {online} = useNetworkState()
     useEffect(() => {
         if (data) {
             history.replace('/tablets')
@@ -21,7 +22,12 @@ const SplashScreen = () => {
 
     useEffect(() => {
         if (onCompleteText && onCompleteBackground) {
-            doFetch()
+            if(online){
+                doFetch()
+            }else{
+                // history.replace('/tablets')
+            }
+           
         }
     }, [onCompleteBackground, onCompleteText])
 
