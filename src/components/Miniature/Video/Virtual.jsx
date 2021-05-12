@@ -51,7 +51,6 @@ const Virtual = ({ name, images, url, description, description_short, idx, lengt
                     <div className="tw-absolute tw-bottom-0 tw-left-0 tw-p-4">
                         <Paragraphs italic family='extrabolditalic'>{name}</Paragraphs>
                     </div>
-
                 </Overload>
             </motion.div>
         </Container>

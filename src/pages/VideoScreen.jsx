@@ -1,35 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import ReactPlayer from 'react-player'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import FloatInfo from '../components/FloatInfo/FloatInfo'
 import { motion } from 'framer-motion'
 import { useDispatch } from 'react-redux'
-import { actionOFFVideo, actionOnVideo } from '../infraestructure/redux/actions/session'
+// import { actionOFFVideo, actionOnVideo } from '../infraestructure/redux/actions/session'
 
 const VideoScreen = () => {
-    const history = useHistory()
-    const [videos, setvideos] = useState(false)
-    const dispatch = useDispatch()
+    // const history = useHistory()
+    const location = useLocation()
+    // const [videos, setvideos] = useState(false)
+    // const dispatch = useDispatch()
     useEffect(() => {
-        if (history.location.state) {
-            setvideos({
-                ...history.location.state
-            })
-            dispatch(actionOnVideo())
-        }
-        else {
-            history.goBack()
-        }
-        return () => {
-            dispatch(actionOFFVideo())
-        }
+        console.log(location, '-----')
+        // if (history.location.state) {
+        //     setvideos({
+        //         ...history.location.state
+        //     })
+        //     dispatch(actionOnVideo())
+        // }
+        // else {
+        //     history.goBack()
+        // }
+        // return () => {
+        //     dispatch(actionOFFVideo())
+        // }
     }, [])
 
     
     return (
         <Layout className="tw-bg-black-900" padding={true}>
-            {
+            {/* {
                 videos && <motion.div
                     initial={{
                         opacity: 0
@@ -60,7 +62,7 @@ const VideoScreen = () => {
                     />
 
                 </motion.div>
-            }
+            } */}
         </Layout>
     )
 }
