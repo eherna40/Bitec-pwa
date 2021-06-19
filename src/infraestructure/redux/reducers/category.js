@@ -4,7 +4,7 @@ const initialState = {
     loading: false,
     error: false,
     data: [],
-    video: {}
+    video: null
 }
 
 const categoryReducer = (state = initialState, action) => {

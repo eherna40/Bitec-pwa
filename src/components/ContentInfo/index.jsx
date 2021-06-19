@@ -42,7 +42,7 @@ const ContentInfo = ({ especifications, features, accesories }) => {
             }}
 
             transition={{
-                duration: 1
+                duration: .5
             }}
 
         >

@@ -15,7 +15,7 @@ const Logo = ({mode,size}) => {
 
 Logo.propTypes = {
     mode: PropTypes.oneOf(['light', 'dark']),
-    size: PropTypes.oneOf(['small', 'large']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
 }
 
 export default Logo

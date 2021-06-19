@@ -11,15 +11,42 @@ import BtnChat from './components/chat/btn-chat';
 import ContactPage from './pages/ContactPage';
 import ListingScreen from './pages/ListingScreen';
 import { useSelector } from 'react-redux';
+import { useIdleTimer } from "react-idle-timer";
 
 function AnimatedApp() {
+  const history = useHistory()
   const location = useLocation();
   const { video } = useSelector(state => state.categoryReducer)
   const { onVideo } = useSelector(state => state.sessionReducer)
+    const { pause, reset } = useIdleTimer({
+      timeout: 300000,
+      onIdle: () => {
+        if (video)
+          history.push("/video", {
+            url: video,
+            loop: true,
+          });
+      },
+    });
+  useEffect(() => {
+    if(onVideo){
+      pause()
+    }
+    if(video){
+      if(!onVideo)
+      reset();
+    }
+
+    if(!video){
+      pause()
+    }
+
+    
+  }, [onVideo, video])
 
   useEffect(() => {
-    console.log(video, onVideo)
-  }, [onVideo])
+    console.log('asdasd')
+  }, [])
 
   return (
     <>

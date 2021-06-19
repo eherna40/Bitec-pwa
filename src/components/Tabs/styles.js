@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Box = styled(motion.div)`
     position: relative;
     display: flex;
-    width: 300px;
+    /* width: 300px; */
     
     cursor: pointer;
     -webkit-box-flex: 1;
@@ -13,9 +13,8 @@ export const Box = styled(motion.div)`
 }
 
 `
-
 export const Container = styled.div`
-    width: 70%;
+    width: 100%;
     max-height: 80%;
     position: absolute;
     right: 0;
@@ -23,6 +22,6 @@ export const Container = styled.div`
 `;
 
 export const ContentBox = styled.div`
-    transform: skew(-10deg)
+    /* transform: skew(-10deg) */
 
 `

@@ -5,7 +5,7 @@ const BackgroundAnimation = ({onAnimtaionEnd, mode}) => {
     return (
         <motion.div 
             transition={{
-                duration: 1
+                duration: .5
             }}
             initial={{
                 left: '-100%'
@@ -17,7 +17,7 @@ const BackgroundAnimation = ({onAnimtaionEnd, mode}) => {
                 left: '100%',
                 transition:{
                     delay: 2,
-                    duration: 1,
+                    duration: .5,
                 }
             }}
             onAnimationComplete={onAnimtaionEnd}

@@ -42,7 +42,7 @@ const CategoryScreen = props => {
                     left: 0
                 }}
                 transition={{
-                    duration: 1
+                    duration: .5
                 }}
             >
             </motion.div>

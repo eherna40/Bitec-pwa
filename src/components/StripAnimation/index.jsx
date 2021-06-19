@@ -7,7 +7,7 @@ const StripAnimation = ({ children, duration, delay = 0, onAnimationComplete, cl
             <motion.div
                 className="tw-absolute tw-top-0 tw-left-0 tw-bg-white tw-h-full tw-w-full"
                 transition={{
-                    duration: duration || 1,
+                    duration: duration || .5,
                     delay
                 }}
                 initial={{

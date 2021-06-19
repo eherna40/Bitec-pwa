@@ -15,7 +15,7 @@ const Reference = ({ reference,
                     Ref. LM:  {ean13}
             </Paragraphs>
             </div>
-            <Paragraphs family='extrabold' size='2xl' className={`tw-text-${textAlign} tw-opacity-10`}>
+            <Paragraphs family='extrabold' size='2xl' className={`tw-text-${textAlign} tw-opacity-80`}>
              {reference}
             </Paragraphs>
 

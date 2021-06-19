@@ -11,7 +11,7 @@ const fadeIn = keyframes`
   }
 `
 export const Image = styled.img`
-    width: ${props => props.size === 'small' ? '100px' : '400px'};
+    width: ${props => props.size === 'small' ? '100px' : props.size === 'medium' ? '200px' : '400px'};
     animation-duration: 1s;
     animation-name: ${fadeIn};
 `

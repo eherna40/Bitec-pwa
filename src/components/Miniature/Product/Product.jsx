@@ -37,11 +37,11 @@ const Product = ({ length, idx, images, reference, id, accesories, category, pri
                         opacity: 0
                      }}
                      animate={{ 
-                         bottom: 10,
-                         opacity: .2
+                         bottom: 80,
+                         opacity: .8
                       }}
                       transition={{ 
-                          duration: 1
+                          duration: 0.2
                        }}
                      >
                         <Paragraphs family='extrabold' size='4xl'  >

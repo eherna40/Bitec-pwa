@@ -20,7 +20,7 @@ export const BtnBack = () => {
             }}
             transition={{
                 duration: .3,
-                delay: 1,
+                delay: .5,
             }}
             onClick={() => history.goBack()} className="BtnBack tw-fixed tw-rounded-r-full tw-py-2 tw-pl-6 tw-pr-10 tw-border  tw-bg-white ">
             <IcBack color='#333' size={20} />

@@ -14,7 +14,7 @@ const Tabs = ({ categories }) => {
   };
 
   return (
-    <Container className="Tabs tw-flex tw-flex-wrap tw-flex-wrap tw-h-screen tw-items-center tw-justify-end tw-w-10/12 ">
+    <Container className="Tabs tw-flex tw-flex-wrap tw-h-screen tw-items-center tw-justify-center tw-w-full ">
       {categories.map((i, idx) => {
         return (
           <Box
@@ -35,7 +35,7 @@ const Tabs = ({ categories }) => {
             className=" tw-w-3/12 tw-relative"
           >
             <ContentBox className="content-box tw-w-full tw-bg-orange tw-h-full tw-text-black-900  tw-cursor-pointer tw-py-10 tw-items-center tw-flex tw-flex-col tw-justify-center ">
-              <img src={i.miniatura} />
+              <img src={i.miniatura} width={categories.length < 4 ? 350 : 230} />
               <Paragraphs size="xl" family="universe" uppercase>
                 {i.name}
               </Paragraphs>

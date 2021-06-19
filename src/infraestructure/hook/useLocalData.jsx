@@ -60,9 +60,8 @@ const useLocalData = () => {
     const saveData = async (data) => {
         const { url, categories } = data
         const video = await savePrincipalVideo(url)
-        console.log(video, '...')
         const products = await saveProducts(categories)
-        dispatch(actionSetCategories(products, video))
+        dispatch(actionSetCategories(products, url));
         return products
     }
 

@@ -15,7 +15,7 @@ display: inline-block;
     border-bottom: ${props => !props.noBorder && '1px solid #efefef' } ;
         border-left: ${props => !props.noBorder && '1px solid #efefef' } ;
 
-    
+    height: 50%;
     cursor: pointer;
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;

@@ -2,7 +2,7 @@ import React from 'react'
 import Paragraphs from '../Paragraphs/Paragraphs'
 import { Box } from './styles'
 
-const btns = ['característica','Especificaciones', 'Accesorios']
+const btns = ['características','Especificaciones', 'Accesorios']
 
 const BtnInfos = ({ handleClick, selected}) => {
     return (

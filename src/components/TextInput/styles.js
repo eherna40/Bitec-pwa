@@ -10,4 +10,5 @@ export const Input = styled.input`
 export const Label = styled.div`
     font-style: italic;
     color: white;
+    font-size: 20px;
 `

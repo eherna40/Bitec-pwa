@@ -16,7 +16,7 @@ const Carousels = ({ images }) => {
                 opacity: 1
             }}
             transition={{
-                duration: 1.3,
+                duration: .5,
                 delay: 0
             }}
             className="tw-relative tw-h-full"
@@ -49,7 +49,7 @@ const Carousels = ({ images }) => {
                 keepDirectionWhenDragging
                 slidesPerPage={2}
                 onChange={(e) => setIndice(e)}
-            className="tw-h-full tw-pt-26"
+                className="tw-h-full tw-pt-26"
             >
                 {
                     images.map(i => {

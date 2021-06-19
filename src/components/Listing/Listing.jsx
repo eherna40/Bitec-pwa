@@ -6,7 +6,7 @@ import Product from '../Miniature/Product/Product'
 const Listing = ({products}) => {
     
     return (
-        <div className="Products tw-flex tw-flex-wrap">
+        <div className="Products tw-flex tw-flex-wrap tw-items-center tw-h-full tw-justify-center">
             {
                 products.map((i, idx) => Number(i.is_virtual) ? <Virtual length={products.length} {...i} idx={idx} /> : <Product length={products.length}  {...i} idx={idx}  />)
             }

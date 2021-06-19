@@ -19,28 +19,62 @@ const Features = ({ data, selected, info }) => {
         <div className="Accesories tw-relative tw-h-full tw-p-5  ">
             {
                 state.reverse().map((i, idx) => {
-                    return <motion.div className="tw-mb-6"
-
+                    return (
+                      <motion.div
+                        className="tw-mb-6"
                         initial={{
-                            opacity: 0,
-                            x: -10
+                          opacity: 0,
+                          x: -10,
                         }}
                         animate={{
-                            opacity: 1,
-                            x: 0
+                          opacity: 1,
+                          x: 0,
                         }}
                         transition={{
-                            delay: idx * 0.2
+                          delay: idx * 0.2,
                         }}
-
-                    >
-                        <div>
-                            <Paragraphs uppercase family='extrabold' size='xs' className="tw-text-white">{Number(selected) === 1 ? i.name : i.name + ' Unidad/es'}</Paragraphs>
-                        </div>
-                        <div>
-                            <Paragraphs uppercase size='sm' className="tw-text-white" family='universe' italic>{i.value}</Paragraphs>
-                        </div>
-                    </motion.div>
+                      >
+                        {Number(selected) === 1 ? (
+                          <>
+                            <div>
+                              <Paragraphs
+                                uppercase
+                                family="extrabold"
+                                size="xs"
+                                className="tw-text-white"
+                              >
+                                {Number(selected) === 1
+                                  ? i.name
+                                  : i.name + " Unidad/es"}
+                              </Paragraphs>
+                            </div>
+                            <div>
+                              <Paragraphs
+                                uppercase
+                                size="sm"
+                                className="tw-text-white"
+                                family="universe"
+                                italic
+                              >
+                                {i.value}
+                              </Paragraphs>
+                            </div>
+                          </>
+                        ) : (
+                          <div>
+                            <Paragraphs
+                              uppercase
+                              size="sm"
+                              className="tw-text-white"
+                              family="universe"
+                              italic
+                            >
+                              ({i.name}) {i.value}
+                            </Paragraphs>
+                          </div>
+                        )}
+                      </motion.div>
+                    );
                 })
             }
         </div>

@@ -6,13 +6,17 @@ const TextInput = ({
     register,
     name,
     placeholder,
-    error
+    error,
+    onFocus,
+    onBlur
 }) => {
     return (
         <div className="TextInput">
             <Label class="tw-mb-3 tw-block tw-text-white">{label}</Label>
             <Input
                 ref={register}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 type='phone'
                 autoComplete='off'
                 autoCapitalize={false}

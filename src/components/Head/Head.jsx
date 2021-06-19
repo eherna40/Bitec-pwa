@@ -19,7 +19,7 @@ const Head = () => {
 
             }}
             transition={{
-                duration: 1
+                duration: .5
             }}
             className="Head tw-bg-black-900 tw-fixed  tw-flex tw-items-center" >
             <Content className="tw-flex tw-items-center tw-justify-center">

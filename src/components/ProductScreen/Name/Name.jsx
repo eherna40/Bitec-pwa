@@ -25,7 +25,7 @@ const Name = ({ name, description }) => {
 
             }}
             transition={{
-                delay: 1,
+                delay: .5,
                 duration: .5
             }}
         >
